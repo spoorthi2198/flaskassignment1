@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Counter</title>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Live Counter:</h1>
+    <h2 id="count">0</h2>
+
+    <script>
+        var socket = io();
+        socket.on('update', function(data) {
+            document.getElementById('count').innerText = data.number;
+        });
+    </script>
+</body>
+</html>

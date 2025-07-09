@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notifications</title>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Notification Area</h1>
+    <p id="note">Waiting for update...</p>
+
+    <script>
+        var socket = io();
+        socket.on('notify', function(data) {
+            document.getElementById('note').innerText = data.message;
+        });
+    </script>
+</body>
+</html>
